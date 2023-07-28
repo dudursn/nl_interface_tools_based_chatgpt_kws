@@ -23,15 +23,16 @@ The extracted keywords experiments are in an application at [app](app/src).
 
 ## Install
 To install required modules, run:
+
     .\install.bat
 
 ## Run
 To execute the application, run:
+
     .\run.bat
 
 ## Requirements
 - OPENAI_KEY: [OpenAI key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
-- KWS_API_URL
 
 Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
 Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
