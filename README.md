@@ -1,0 +1,39 @@
+# Combining OpenAI ChatGPT and Database Keyword Search 
+
+This project addresses the problem of using ChatGPT as a natural language (NL) query front-end to
+database keyword search tools(KwS). It proposes two alternatives to use ChatGPT to extract keywords from NL
+sentences, expressing database queries, which are then passed to the database keyword search tool (KwS
+tool). It describes experiments based on KwS tools that work on top of relational databases
+and RDF datasets with or without an RDF schema and translate NL queries  from ChatGPT and compares both. 
+
+The experiments from ChatGPT consists in translate NL queries into SQL and extract keywords
+from a text block.
+
+To translate in SQL queries, we have three approaches:
+- we create a simple input, without practically any context passed, using the knowledge of the model;
+- we provide manually context information about schema, joins, tables and columns to model;
+- we use LangChain to provide context information for model, automatically way.
+
+The SQL queries translation experiments are in notebooks at [studies_translate_SQL_query_Langchain](/studies_translate_SQL_query_Langchain).
+
+To extracted keywords from ChatGPT and send for KwS, we have two approaches:
+- we create a simple input, without practically any context passed, using the knowledge of the model;
+- we provide manually context information about KwS, database, queries examples in natural language and the desired responses to model;
+
+The extracted keywords experiments are in an application at [app](app/src).
+
+## Install
+To install required modules, run:
+    .\install.bat
+
+## Run
+To execute the application, run:
+    .\run.bat
+
+## Requirements
+- OPENAI_KEY: [OpenAI key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
+- KWS_API_URL
+
+Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
+Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
+Marco A. Casanova
