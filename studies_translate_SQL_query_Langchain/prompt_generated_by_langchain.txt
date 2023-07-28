@@ -1,0 +1,377 @@
+
+CREATE TABLE airport (
+	iatacode VARCHAR(3 CHAR) NOT NULL, 
+	name VARCHAR(100 CHAR), 
+	country VARCHAR(4 CHAR), 
+	city VARCHAR(50 CHAR), 
+	province VARCHAR(50 CHAR), 
+	island VARCHAR(50 CHAR), 
+	latitude NUMBER, 
+	longitude NUMBER, 
+	elevation NUMBER, 
+	gmtoffset NUMBER, 
+	CONSTRAINT sys_c00114043 PRIMARY KEY (iatacode), 
+	CONSTRAINT airplat CHECK ((Latitude >= -90) AND (Latitude <= 90)), 
+	CONSTRAINT airplon CHECK ((Longitude >= -180) AND (Longitude <= 180))
+)
+
+/*
+2 rows from airport table:
+iatacode	name	country	city	province	island	latitude	longitude	elevation	gmtoffset
+KMG	Wujiaba	CN	Kunming	Yunnan	None	24.992364	102.743536	1895.0	8.0
+TSN	Binhai	CN	Tianjin	Tianjin	None	39.124353	117.346183	3.0	8.0
+*/
+
+
+CREATE TABLE borders (
+	country1 VARCHAR(4 CHAR) NOT NULL, 
+	country2 VARCHAR(4 CHAR) NOT NULL, 
+	length NUMBER, 
+	CONSTRAINT borderkey PRIMARY KEY (country1, country2), 
+	CONSTRAINT sys_c00113990 CHECK (Length > 0)
+)
+
+/*
+2 rows from borders table:
+country1	country2	length
+AL	GR	282.0
+AL	MK	151.0
+*/
+
+
+CREATE TABLE city (
+	name VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	province VARCHAR(50 CHAR) NOT NULL, 
+	population NUMBER, 
+	latitude NUMBER, 
+	longitude NUMBER, 
+	elevation NUMBER, 
+	CONSTRAINT citykey PRIMARY KEY (name, country, province), 
+	CONSTRAINT citylat CHECK ((Latitude >= -90) AND (Latitude <= 90)), 
+	CONSTRAINT citylon CHECK ((Longitude >= -180) AND (Longitude <= 180)), 
+	CONSTRAINT citypop CHECK (Population >= 0)
+)
+
+/*
+2 rows from city table:
+name	country	province	population	latitude	longitude	elevation
+Táranto	I	Puglia	200154.0	40.47	17.23	15.0
+Potenza	I	Basilicata	66777.0	40.63	15.8	819.0
+*/
+
+
+CREATE TABLE citylocalname (
+	city VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	province VARCHAR(50 CHAR) NOT NULL, 
+	localname VARCHAR(300 CHAR), 
+	CONSTRAINT citylocalnamekey PRIMARY KEY (country, province, city)
+)
+
+/*
+2 rows from citylocalname table:
+city	country	province	localname
+Ningbo	CN	Zhejiang	宿波市
+Wenzhou	CN	Zhejiang	温州市
+*/
+
+
+CREATE TABLE cityothername (
+	city VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	province VARCHAR(50 CHAR) NOT NULL, 
+	othername VARCHAR(50 CHAR) NOT NULL, 
+	CONSTRAINT cityothernamekey PRIMARY KEY (country, province, city, othername)
+)
+
+/*
+2 rows from cityothername table:
+city	country	province	othername
+Wien	A	Wien	Vienna
+Tirana	AL	Albania	Tirane
+*/
+
+
+CREATE TABLE citypops (
+	city VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	province VARCHAR(50 CHAR) NOT NULL, 
+	year NUMBER NOT NULL, 
+	population NUMBER, 
+	CONSTRAINT citypopkey PRIMARY KEY (country, province, city, year), 
+	CONSTRAINT citypopspop CHECK (Population >= 0), 
+	CONSTRAINT citypopsyear CHECK (Year >= 0)
+)
+
+/*
+2 rows from citypops table:
+city	country	province	year	population
+Jerez de la Frontera	E	Andalucía	2001.0	183273.0
+Jerez de la Frontera	E	Andalucía	2011.0	211784.0
+*/
+
+
+CREATE TABLE continent (
+	name VARCHAR(20 CHAR) NOT NULL, 
+	area NUMBER(10, 0), 
+	CONSTRAINT continentkey PRIMARY KEY (name)
+)
+
+/*
+2 rows from continent table:
+name	area
+Europe	10523000
+Asia	44614500
+*/
+
+
+CREATE TABLE country (
+	name VARCHAR(50 CHAR) NOT NULL, 
+	code VARCHAR(4 CHAR) NOT NULL, 
+	capital VARCHAR(50 CHAR), 
+	province VARCHAR(50 CHAR), 
+	area NUMBER, 
+	population NUMBER, 
+	CONSTRAINT countrykey PRIMARY KEY (code), 
+	CONSTRAINT countryarea CHECK (Area >= 0), 
+	CONSTRAINT countrypop CHECK (Population >= 0)
+)
+
+/*
+2 rows from country table:
+name	code	capital	province	area	population
+Albania	AL	Tirana	Albania	28750.0	2821977.0
+Greece	GR	Athina	Attikis	131940.0	10816286.0
+*/
+
+
+CREATE TABLE countrylocalname (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	localname VARCHAR(300 CHAR), 
+	CONSTRAINT countrylocalnamekey PRIMARY KEY (country)
+)
+
+/*
+2 rows from countrylocalname table:
+country	localname
+AL	Shqipëri
+GR	Ελληνική ΔημοκϿατία
+*/
+
+
+CREATE TABLE countryothername (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	othername VARCHAR(50 CHAR) NOT NULL, 
+	CONSTRAINT countryothernamekey PRIMARY KEY (country, othername)
+)
+
+/*
+2 rows from countryothername table:
+country	othername
+CZ	Czechia
+MYA	Burma
+*/
+
+
+CREATE TABLE countrypops (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	year NUMBER NOT NULL, 
+	population NUMBER, 
+	CONSTRAINT countrypopskey PRIMARY KEY (country, year), 
+	CONSTRAINT countrypopspop CHECK (Population >= 0), 
+	CONSTRAINT countrypopsyear CHECK (Year >= 0)
+)
+
+/*
+2 rows from countrypops table:
+country	year	population
+BHT	1960.0	224155.0
+BHT	1970.0	291555.0
+*/
+
+
+CREATE TABLE economy (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	gdp NUMBER, 
+	agriculture NUMBER, 
+	service NUMBER, 
+	industry NUMBER, 
+	inflation NUMBER, 
+	unemployment NUMBER, 
+	CONSTRAINT economykey PRIMARY KEY (country), 
+	CONSTRAINT economygdp CHECK (GDP >= 0)
+)
+
+/*
+2 rows from economy table:
+country	gdp	agriculture	service	industry	inflation	unemployment
+AL	12800.0	19.5	68.5	12.0	1.7	16.9
+GR	243300.0	3.5	80.5	16.0	-0.8	27.9
+*/
+
+
+CREATE TABLE encompasses (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	continent VARCHAR(20 CHAR) NOT NULL, 
+	percentage NUMBER, 
+	CONSTRAINT encompasseskey PRIMARY KEY (country, continent), 
+	CONSTRAINT sys_c00113992 CHECK ((Percentage > 0) AND (Percentage <= 100))
+)
+
+/*
+2 rows from encompasses table:
+country	continent	percentage
+AL	Europe	100.0
+GR	Europe	100.0
+*/
+
+
+CREATE TABLE ethnicgroup (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	name VARCHAR(50 CHAR) NOT NULL, 
+	percentage NUMBER, 
+	CONSTRAINT ethnickey PRIMARY KEY (name, country), 
+	CONSTRAINT ethnicpercent CHECK ((Percentage > 0) AND (Percentage <= 100))
+)
+
+/*
+2 rows from ethnicgroup table:
+country	name	percentage
+WF	Polynesian	99.0
+FJI	Melanesian-Polynesian	58.0
+*/
+
+
+CREATE TABLE organization (
+	abbreviation VARCHAR(12 CHAR) NOT NULL, 
+	name VARCHAR(100 CHAR) NOT NULL, 
+	city VARCHAR(50 CHAR), 
+	country VARCHAR(4 CHAR), 
+	province VARCHAR(50 CHAR), 
+	established DATE, 
+	CONSTRAINT orgkey PRIMARY KEY (abbreviation)
+)
+
+/*
+2 rows from organization table:
+abbreviation	name	city	country	province	established
+AfDB	African Development Bank Group	Abidjan	CI	Abidjan	1964-09-09 00:00:00
+AU	African Union	Addis Ababa	ETH	Addis Ababa	1963-05-25 00:00:00
+*/
+
+
+CREATE TABLE politics (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	independence DATE, 
+	wasdependent VARCHAR(50 CHAR), 
+	dependent VARCHAR(4 CHAR), 
+	government VARCHAR(120 CHAR), 
+	CONSTRAINT politicskey PRIMARY KEY (country)
+)
+
+/*
+2 rows from politics table:
+country	independence	wasdependent	dependent	government
+AL	1912-11-28 00:00:00	Ottoman Empire	None	parliamentary democracy
+GR	1829-01-01 00:00:00	Ottoman Empire	None	parliamentary republic
+*/
+
+
+CREATE TABLE population (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	population_growth NUMBER, 
+	infant_mortality NUMBER, 
+	CONSTRAINT popkey PRIMARY KEY (country)
+)
+
+/*
+2 rows from population table:
+country	population_growth	infant_mortality
+AL	0.3	13.19
+GR	0.01	4.78
+*/
+
+
+CREATE TABLE province (
+	name VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	population NUMBER, 
+	area NUMBER, 
+	capital VARCHAR(50 CHAR), 
+	capprov VARCHAR(50 CHAR), 
+	CONSTRAINT prkey PRIMARY KEY (name, country), 
+	CONSTRAINT prar CHECK (Area >= 0), 
+	CONSTRAINT prpop CHECK (Population >= 0)
+)
+
+/*
+2 rows from province table:
+name	country	population	area	capital	capprov
+Primorskiy	R	1938516.0	165900.0	Vladivostok	Primorskiy
+Khabarovskiy	R	1339912.0	752600.0	Khabarovsk	Khabarovskiy
+*/
+
+
+CREATE TABLE provincelocalname (
+	province VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	localname VARCHAR(300 CHAR), 
+	CONSTRAINT provlocalnamekey PRIMARY KEY (country, province)
+)
+
+/*
+2 rows from provincelocalname table:
+province	country	localname
+Anatolikis Makedonias kai Thrakis	GR	Ανατολικής Μακεδονίας και ΘϿάκης
+Attikis	GR	Αττικής
+*/
+
+
+CREATE TABLE provinceothername (
+	province VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	othername VARCHAR(50 CHAR) NOT NULL, 
+	CONSTRAINT provothernamekey PRIMARY KEY (country, province, othername)
+)
+
+/*
+2 rows from provinceothername table:
+province	country	othername
+Liège	B	Luik
+Kongo Central	CGO	Bas-Congo
+*/
+
+
+CREATE TABLE provpops (
+	province VARCHAR(50 CHAR) NOT NULL, 
+	country VARCHAR(4 CHAR) NOT NULL, 
+	year NUMBER NOT NULL, 
+	population NUMBER, 
+	CONSTRAINT provpopkey PRIMARY KEY (country, province, year), 
+	CONSTRAINT provpopspop CHECK (Population >= 0), 
+	CONSTRAINT provpopsyear CHECK (Year >= 0)
+)
+
+/*
+2 rows from provpops table:
+province	country	year	population
+Uri	CH	2009.0	35335.0
+Uri	CH	2013.0	35865.0
+*/
+
+
+CREATE TABLE religion (
+	country VARCHAR(4 CHAR) NOT NULL, 
+	name VARCHAR(50 CHAR) NOT NULL, 
+	percentage NUMBER, 
+	CONSTRAINT religionkey PRIMARY KEY (name, country), 
+	CONSTRAINT religionpercent CHECK ((Percentage > 0) AND (Percentage <= 100))
+)
+
+/*
+2 rows from religion table:
+country	name	percentage
+EAK	Hindu	0.7
+EAK	Quaker	0.2
+*/
