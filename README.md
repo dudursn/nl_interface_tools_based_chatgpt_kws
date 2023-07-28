@@ -1,7 +1,6 @@
 # Combining OpenAI ChatGPT and Database Keyword Search 
 
-This project addresses the problem of using ChatGPT as a natural language (NL) query front-end to
-database keyword search tools(KwS). It proposes two alternatives to use ChatGPT to extract keywords from NL
+This project proposes two alternatives to use ChatGPT to extract keywords from NL
 sentences, expressing database queries, which are then passed to the database keyword search tool (KwS
 tool). It describes experiments based on KwS tools that work on top of relational databases
 and RDF datasets with or without an RDF schema and translate NL queries  from ChatGPT and compares both. 
