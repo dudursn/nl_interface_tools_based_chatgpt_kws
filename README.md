@@ -32,7 +32,7 @@ The extracted keywords experiments are in an application at [app](app/src).
 ## Developing
 
 ### Built With
-- Flask v2.2
+- Flask v2.3
 - openai v0.27.8
 - openpyxl v3.0.9
 - pandas v1.3.4
