@@ -21,17 +21,27 @@ To extracted keywords from ChatGPT and send for KwS, we have two approaches:
 
 The extracted keywords experiments are in an application at [app](app/src).
 
-## Install
-To install required modules, run:
+## Installing / Getting started
+    > git clone https://github.com/dudursn/chatgpt_kws.git
+    > cd /chatgpt_kws
+    Run the batch file:
+    > .\install.bat
+    Then, run:
+    > .\run.bat
+  
+## Developing
 
-    .\install.bat
-
-## Run
-To execute the application, run:
-
-    .\run.bat
-
-## Requirements
+### Built With
+- Flask v2.2
+- openai v0.27.8
+- openpyxl v3.0.9
+- pandas v1.3.4
+- Flask-cors v3.0.10
+- requests v2.31.0
+- python-dotenv v1.0.0
+  
+### Prerequisites
+- Python 3.10.7
 - OPENAI_KEY: [OpenAI key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
 
 Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
