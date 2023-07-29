@@ -1,11 +1,11 @@
 
-def get_messages(opt):
-
+def get_messages(user_input, opt):
+    
     if (opt == "1"):
         print(opt)
         f = open("prompt_messages/mondial_prompt.txt", "r")
         system_message = f.read()
-        return [
+        prompt_messages = [
             {"role": "system", "content": system_message},
             {"role": "user", "content": "Cities of Thailand"},
             {"role": "assistant", "content": "search_keywords(City Thailand)"},
@@ -26,10 +26,14 @@ def get_messages(opt):
             {"role": "user", "content": "Airports with elevation greater than 1000"},
             {"role": "assistant", "content": "search_keywords(Airports elevation > 1000)"}
         ]
-        
-    system_message = "You are a helpful assistant that extract keywords from a block of text,\n" + \
-        "search for it in a database and show the results."
-    return [
-        {"role": "system", "content": system_message}
-    ]
+    else:
+        system_message = "You are a helpful assistant that extract keywords from a block of text,\n" + \
+            "search for it in a database and show the results."
+            
+        prompt_messages = [
+            {"role": "system", "content": system_message}
+        ]
+    
+    prompt_messages.append({"role": "user", "content": user_input}) 
+    return prompt_messages
         

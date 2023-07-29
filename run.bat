@@ -2,8 +2,8 @@ echo off
 
 call .\venv\Scripts\activate
 
-echo ...project app/src
-cd app/src
+echo ...project keywords_extraction/src
+cd keywords_extraction/src
 
 if not exist ".env" (
  
@@ -13,7 +13,7 @@ if not exist ".env" (
 )
 
 echo ..
-echo ..before continue we continue please check that enviroment variables in \app\src\.env are fulfilled
+echo ..before continue we continue please check that enviroment variables in \keywords_extraction\src\.env are fulfilled
 PAUSE
 
-call python main.py kws
+call flask run

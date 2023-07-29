@@ -47,3 +47,11 @@ The extracted keywords experiments are in an application at [app](app/src).
 Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
 Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
 Marco A. Casanova
+
+The application:
+
+![image info](imgs/chatgpt_kws_1.png)
+
+We enter a input "what are provinces with area more than 1000?", then:
+
+![image info](imgs/chatgpt_kws_2.png)
