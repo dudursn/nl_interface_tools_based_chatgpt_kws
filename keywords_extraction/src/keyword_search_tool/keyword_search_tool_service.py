@@ -7,9 +7,6 @@ class KeywordSearchToolService(ServiceInterface):
     def __init__(self):
         self.__kws_config = KeywordSearchToolConfig()
 
-    def execute(self, opt="1"):
-        print("Type 'exit' and press ENTER to stop...\n")
-        user_input = input("USER: ")
-        while user_input != "exit":
-            run_conversation(user_input, self.__kws_config.get_config_function(), opt)
-            user_input = input("USER: ")
+    def execute(self, user_input, opt="1"):
+        return run_conversation(user_input, self.__kws_config.get_config_function(), opt)
+ 
