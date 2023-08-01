@@ -15,7 +15,7 @@ Requisição para o ChatGPT
 """
 def run_conversation(user_input, functions_to_chatgpt, opt=1, show_result = True):
 
-    response = {"chatgpt_function_response":"", "kws_response": "", "chatgpt_response": ""}
+    response = {"chatgpt_function_response":"", "chatgpt_asked_kws":"", "keywords":"", "kws_response": "", "chatgpt_response": ""}
 
     function_call = functions_to_chatgpt["function_call"]
     functions = functions_to_chatgpt["functions"]
@@ -82,8 +82,8 @@ def run_conversation(user_input, functions_to_chatgpt, opt=1, show_result = True
             response["chatgpt_response"] = second_response["choices"][0]["message"]["content"].strip()
         
     else:
-        response["keywords"] = "CHATGPT DID NOT ASK TO RUN FUNCTION"
-        response["kws_response"] = "NO"
+        response["chatgpt_function_response"] = "CHATGPT DID NOT ASK TO RUN FUNCTION"
+        response["chatgpt_asked_kws"] = "NO"
         response["chatgpt_response"] = response["choices"][0]["message"]["content"].strip()
         
     return response

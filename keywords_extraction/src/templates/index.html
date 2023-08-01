@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Combining ChatGPT and Keyword Search Tool{% endblock %}
 
+{% set checked='checked' %}
+{% if ( result["prompt"] and result["prompt"]=='NO' ) %}
+  {% set checked='' %}
+{% endif %}
+
 {% block navbar %}
 <div class="navbar navbar-fixed-top">
   <!-- ... -->
@@ -17,8 +22,9 @@
   <form action="/" method="post">
     <div class="row">
       <div class="col-sm-8">
+       
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" name="optPrompt" role="switch" id="optPrompt" checked>
+          <input class="form-check-input" type="checkbox" name="optPrompt" role="switch" id="optPrompt" {{ checked }}>
           <label class="form-check-label" for="optPrompt">Using promt with context information</label>
         </div>
 
