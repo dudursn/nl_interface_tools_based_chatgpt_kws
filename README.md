@@ -48,10 +48,8 @@ Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
 Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
 Marco A. Casanova
 
+### Demonstration
 The application:
 
-![image info](imgs/chatgpt_kws_1.png)
+[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://drive.google.com/file/d/1DSP5WonidYj1ckVVbn_Dy1KutRBdYmbi/view?usp=sharing)
 
-We enter a input "what are provinces with area more than 1000?", then:
-
-![image info](imgs/chatgpt_kws_2.png)
