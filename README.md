@@ -48,8 +48,8 @@ Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
 Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
 Marco A. Casanova
 
-### Demonstration
-The application:
+### Demo Video
+The application (click on the image below) :
 
 [![Watch the video](imgs/demonstration.png)](https://drive.google.com/file/d/1r9XjqaWmP5GAmNrnfk1whwFmKiPigVJh/view?usp=sharing)
 
