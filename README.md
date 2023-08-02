@@ -51,5 +51,5 @@ Marco A. Casanova
 ### Demonstration
 The application:
 
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://drive.google.com/file/d/1DSP5WonidYj1ckVVbn_Dy1KutRBdYmbi/view?usp=sharing)
+[![Watch the video](imgs/demonstration.png)](https://drive.google.com/file/d/1DSP5WonidYj1ckVVbn_Dy1KutRBdYmbi/view?usp=sharing)
 
