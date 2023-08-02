@@ -51,5 +51,5 @@ Marco A. Casanova
 ### Demo Video
 The application (click on the image below) :
 
-[![Watch the video](imgs/demonstration.png)](https://drive.google.com/file/d/1r9XjqaWmP5GAmNrnfk1whwFmKiPigVJh/view?usp=sharing)
+[![Watch the video](imgs/demo-video-thumbnail.png)](https://drive.google.com/file/d/1r9XjqaWmP5GAmNrnfk1whwFmKiPigVJh/view?usp=sharing)
 
