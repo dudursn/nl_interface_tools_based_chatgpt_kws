@@ -1,4 +1,4 @@
-# A Family of Natural Language Interface Tools based on ChatGPT and Database Keyword Search
+# A Family of Natural Language Interface Tools based on ChatGPT and LangChain
 
 This application proposes two alternatives to use ChatGPT to extract keywords from NL
 sentences, expressing database queries, which are then passed to the database keyword search tool (KwS
