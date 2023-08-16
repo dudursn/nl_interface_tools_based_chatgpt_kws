@@ -41,7 +41,7 @@ def run_conversation(user_input, functions_to_chatgpt, opt=1, show_result = True
     )
 
     message = response["choices"][0]["message"]
-
+    print(message)
     # Step 2, check if the model wants to call a function
     if message.get("function_call"):
 

@@ -13,13 +13,22 @@ To translate in SQL queries, we have three approaches:
 - we provide manually context information about schema, joins, tables and columns to model;
 - we use LangChain to provide context information for model, automatically way.
 
-The SQL queries translation experiments are in notebooks at [studies_translate_SQL_query_Langchain](/studies_translate_SQL_query_Langchain).
+The SQL queries translation experiments are in notebooks at [translate_to_sql](/studies_translate_SQL_query_Langchain).
 
 To extracted keywords from ChatGPT and send for KwS, we have two approaches:
 - we create a simple input, without practically any context passed, using the knowledge of the model;
 - we provide manually context information about KwS, database, queries examples in natural language and the desired responses to model;
 
-The extracted keywords experiments are in an application at [app](app/src).
+The extracted keywords experiments are in an application at [keywords_extraction](keywords_extraction/src).
+
+### Architecture
+
+![image](imgs/Application.png)
+
+### Demo Video
+The application (click on the image below) :
+
+[![Watch the video](imgs/thumb-video.png)](https://youtu.be/lVItfFFQKag)
 
 ## Installing / Getting started
     > git clone https://github.com/dudursn/chatgpt_kws.git
@@ -48,8 +57,4 @@ Authors: Eduardo Nascimento, Grettel Monteagudo García, Wendy Zuloaga Victorio,
 Melissa Lemos, Yenier Torres Izquierdo, Luiz André Portes Paes Leme and
 Marco A. Casanova
 
-### Demo Video
-The application (click on the image below) :
-
-[![Watch the video](imgs/thumb-video.png)](https://youtu.be/lVItfFFQKag)
 
