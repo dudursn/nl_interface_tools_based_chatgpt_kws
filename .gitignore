@@ -1,0 +1,23 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Segredos / variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Arquivos temporários do Office
+~$*
+
+# Sistema
+.DS_Store
+Thumbs.db
